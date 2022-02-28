@@ -1,0 +1,9 @@
+<%= form_with(model: task) do |form| %>
+  <div class="row">
+    <div class="col-md-6">
+      <%= form.text_field :description, class: "form-control"%>
+    </div>
+    <div class="col-md-6">
+      <%= form.submit "Save", class: "btn btn-outline-primary" %>
+    </div>
+<% end %>
