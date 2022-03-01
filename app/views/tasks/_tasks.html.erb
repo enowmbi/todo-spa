@@ -1,7 +1,7 @@
 <div class="container">
   <% tasks.each do |task| %>
     <p>
-    <%= task.completed %>
+    <%= check_box_tag(:completed, data: { id: task.id, action: "tasks#toggle" }) %>
     <%= task.description %>
     </p>
   <% end %>
