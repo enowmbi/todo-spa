@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  default_scope { order(updated_at: :desc)}
+  broadcasts_to ->(task) { "tasks" }, inserts_by: :prepend, target: "tasks"
 end

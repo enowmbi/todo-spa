@@ -1,7 +1,14 @@
-<% if notice.present? %>
-  <%= notice %>
-<% end %>
-<h1 class="my-4">Task Manager</h1>
-<%= render "tasks/form", task: @task  %>
-<h1 class="my-5">Tasks</h1>
-<%= render "tasks/tasks", tasks: @tasks %>
+<p style="color: green"><%= notice %></p>
+
+<%= turbo_stream_from "todos" %>
+<h1>Tasks</h1>
+<%= render "tasks/form", task: Task.new %>
+
+
+<%# <div id="tasks"> %>
+  <%= turbo_frame_tag "tasks" do %>
+    <% @tasks.each do |task| %>
+      <%= render task %>
+    <% end %>
+  <% end %>
+  <%# </div> %>
